@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <algorithm>
 #include <vector>
 using namespace std;
 
@@ -19,7 +20,7 @@ int main() {
     for (int i = 0; i < t; i++)
     {
         if (now[0] ==  1&& way == 0 || now[0] == n && way == 2 || now[1] == 1 && way == 1 || now[1] == n  && way == 3) {
-            way = way + 2 % 4;
+            way = (way + 2) % 4;
         }
         else
         {
