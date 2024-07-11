@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 #include <vector>
 using namespace std;
 
@@ -33,6 +34,5 @@ int main()
 			return 0;
 		}
 	}
-	cout << -1;
-	
+	cout << -1;	
 }
