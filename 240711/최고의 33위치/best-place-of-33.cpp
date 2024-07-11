@@ -9,8 +9,9 @@ int get_gold(int r, int c)
 	int count = 0;
 	for (int i = r; i < r + 3; i++)
 	{
-		for (int j = c; j < c + 3; j++)
-			count += map[r + i][c + j];
+		for (int j = c; j < c + 3; j++) {
+			count += map[i][j];
+		}
 	}
 	return count;
 }
