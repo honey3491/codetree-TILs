@@ -12,6 +12,8 @@ int main()
 	for (int i = 0; i < n * m; i++)
 	{
 		value[now[0]][now[1]] = input++;
+		if(input > 'Z')
+			input = 'A';
 		if ((now[1] == m - 1 && move_val == 0) || (now[0] == n - 1 && move_val == 1 )|| (now[1] == 0 && move_val == 2) || (now[0] == 0 && move_val == 3) || value[now[0] + move[move_val][0]][now[1] + move[move_val][1]] != 0)
 			move_val = (move_val + 1) % 4;
 
