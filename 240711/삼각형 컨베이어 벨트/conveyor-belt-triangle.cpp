@@ -16,7 +16,7 @@ int main()
 		v.push_back(a);
 	}
 	
-	t = t % (n * 2);
+	t = t % (n * 3);
 
 	for (int i = 0; i < t; i++)
 	{
