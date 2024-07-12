@@ -4,8 +4,7 @@
 
 using namespace std;
 
-short n, m, table[20][20], dxdy[4][2] = { {-1, 0}, {1, 0}, {0, -1 }, {0, 1} }, t;
-deque <pair<short, short>> balls;
+short n, m, table[20][20], balls[20][20] = {0, }, tmp[20][20] = {0, }, dxdy[4][2] = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}}, t;
 
 bool can_move(int r, int c)
 {
@@ -17,7 +16,20 @@ bool can_move(int r, int c)
 
 void remove_duplication()
 {
-	balls.erase(unique(balls.begin(), balls.end()), balls.end());
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n; j++)
+		{
+			if (tmp[i][j] >= 2)
+			{
+				tmp[i][j] = 0;
+				m -= 2;
+			}
+			balls[i][j] = tmp[i][j];
+			tmp[i][j] = 0;
+		}
+	}
+	
 }
 
 void move_to_maximum(int r, int c)
@@ -35,8 +47,23 @@ void move_to_maximum(int r, int c)
 			}
 		}
 	}
-	if(find(balls.begin(), balls.end(), make_pair(max_r, max_c))== balls.end())
-		balls.push_back({ max_r, max_c });
+
+	tmp[max_r][max_c]++;
+}
+
+void simulate()
+{
+	
+	for (int j = 0; j < n; j++)
+	{
+		for (int k = 0; k < n; k++)
+		{
+			if (balls[j][k] != 0) 
+				move_to_maximum(j, k);
+		}
+	}
+	
+	remove_duplication();
 }
 
 int main()
@@ -51,20 +78,12 @@ int main()
 	{
 		short r, c;
 		cin >> r >> c;
-		balls.push_back({ r-1, c-1 });
+		balls[r-1][c-1]++;
 	}
 
 	for (int i = 0; i < t; i++)
 	{
-		short ball = balls.size();
-		for (int j = 0; j < ball; j++)
-		{
-			move_to_maximum(balls[0].first, balls[0].second);
-			balls.erase(balls.begin());
-		}
-		remove_duplication();
-		sort(balls.begin(), balls.end());
-		reverse(balls.begin(), balls.end());
+		simulate();
 	}
-	cout << balls.size();
+	cout << m;
 }
