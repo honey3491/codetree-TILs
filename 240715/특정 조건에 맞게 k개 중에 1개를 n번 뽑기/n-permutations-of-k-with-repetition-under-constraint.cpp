@@ -6,8 +6,8 @@ int N, K;
 
 void print_num(int a)
 {
-    if (a == pow(K, N) - 1)
-        exit(1);
+    if (a == pow(K, N))
+        exit(0);
     int tmp = a, arr[8] = { 0, };
     for (int i = N - 1; i >= 0; i--)
     {
@@ -21,7 +21,7 @@ void print_num(int a)
             if (arr[i] == arr[i - 1] && arr[i] == arr[i - 2])
             {
                 print_num(a + 1);
-                exit(1);
+                exit(0);
             }
         }
     }
@@ -36,5 +36,6 @@ int main() {
 
     cin >> K >> N;
     print_num(0);
+
     return 0;
 }
