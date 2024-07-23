@@ -67,5 +67,5 @@ int main()
 	if (answer)
 		cout << visited[n-1][m-1];
 	else
-		cout << '-1';
+		cout << "-1";
 }
