@@ -6,7 +6,7 @@ using namespace std;
 int N, M, K, grid[50][50] = { 0, }, visited[50][50];
 stack<pair<int, int>> s;
 
-int max_safe_areas = 0, best_K = 0;
+int max_safe_areas = 0, best_K = 1;
 
 bool InRange(int y, int x)
 {
