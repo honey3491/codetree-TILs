@@ -38,9 +38,9 @@ void BFS() {
         int x = curr_pos.first;
         int y = curr_pos.second;
 
-        //cout << x << y << endl;
+        //cout << x << ' ' << y << endl;
 
-        if (x == m - 1 && y == n - 1)
+        if (x == n - 1 && y == m - 1)
         {
             result = true;
             break;
