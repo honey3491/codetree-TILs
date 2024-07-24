@@ -2,28 +2,25 @@
 using namespace std;
 
 int count = 0;
+int memo[1000] = {0, };
 
-void stairs(int n)
+int stairs(int n)
 {
-    if(n == 0){
-        count++;
-        return;
-    }
-    else if(n == 1)
-        return;
-    else if(n < 0)
-        return;
+    if(n < 0)
+        return 0;
+    if(memo[n] != 0)
+        return memo[n];
     else
-    {   
-        stairs(n-2);
-        stairs(n-3);
-    }
-    return;
+        memo[n] = stairs(n-2) + stairs(n-3);
+    return memo[n];
 }
 int main() {
     int num;
+    memo[0] = 1;
+    memo[2] = 1;
+    memo[3] = 1;
     cin >> num;
-    stairs(num);
+    count = stairs(num);
     cout << count;
     return 0;
 }
