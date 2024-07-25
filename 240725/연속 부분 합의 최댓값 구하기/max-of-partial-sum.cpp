@@ -24,5 +24,5 @@ int main()
 
 	for (int i = 1; i < n; i++)
 		D[i] = max(A[i], D[i - 1] + A[i]);
-	cout << D[n - 1];
+	cout << *max_element(D.begin(), D.end());
 }
