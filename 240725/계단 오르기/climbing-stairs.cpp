@@ -13,7 +13,7 @@ int stairs(int n)
         return memo[n];
     }
     else
-        memo[n] = stairs(n-2) + stairs(n-3);
+        memo[n] = (stairs(n-2) + stairs(n-3)) % 10007;
     return memo[n];
 }
 int main() {
