@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
     int n, m;
-    int cloth[201][200] = { 0, }, dp[200][201] = {0,};
+    int cloth[201][201] = { 0, }, dp[201][201] = {0,};
     cin >> n >> m;
     for (int i = 0; i < n; i++)
     {
