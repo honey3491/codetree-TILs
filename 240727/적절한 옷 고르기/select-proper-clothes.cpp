@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 int main() {
@@ -23,8 +22,6 @@ int main() {
                 continue;
             for (int k = 0; k < n; k++)
             {
-                if (k == j)
-                    continue;
                 if (cloth[k][i - 1] == 0)
                     continue;
                 max_diff = max(max_diff, dp[i-1][k] + abs(cloth[j][i] - cloth[k][i - 1]));
