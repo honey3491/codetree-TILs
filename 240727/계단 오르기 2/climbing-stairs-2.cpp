@@ -8,12 +8,14 @@ int main() {
     for (int i = 1; i <= n; i++)
         cin >> A[i];
     stairs[1][1] = A[1];
-    stairs[2][2] = A[1] + A[2];
-    stairs[2][0] = A[2];
+    if (n > 1) {
+        stairs[2][2] = A[1] + A[2];
+        stairs[2][0] = A[2];
+    }
 
     for (int i = 3; i <= n; i++)
     {
-        for (int j = 0; j < 3; j++)
+        for (int j = 0; j <= 3; j++)
         {
             if (stairs[i - 2][j] != 0) // 두 칸 전진
                 stairs[i][j] = max(stairs[i][j], stairs[i - 2][j] + A[i]);
